@@ -1,9 +1,64 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <!-- <link href="style.css" rel="stylesheet" type="text/css"/> -->
+        <title>Tic Tac Toe</title>
+        
+         <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+        
+          <link href="style.css" rel="stylesheet" type="text/css"/>
+          <link rel="icon" type='image/png' href='img/favicon.png'/>
+
     </head>
     <body>
-         <h1>hiii</h1>
+         <div class="box">
+            <button onclick="openModel('inviteModel')">invite</button>
+            <button onclick="openModel('joinModel')">join</button>
+         </div>
+             
+    <div class='game-layout'>
+        <div data-index='0'></div>
+        <div data-index='1'></div>
+        <div data-index='2'></div>
+        <div data-index='3'></div>
+        <div data-index='4'></div>
+        <div data-index='5'></div>
+        <div data-index='6'></div>
+        <div data-index='7'></div>
+        <div data-index='8'></div>
+
+    </div>
+
+    <div id="inviteModel" class="invite-model">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          
+          <p><b><u id="code">aeiou</u></b> is your invitaion code ask you friend to join with this code</p>
+          <button onclick="closeModel('inviteModel')">close model</button>
+        </div>
+      
+      </div>
+
+      <div id="joinModel" class="invite-model">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          
+          <input id='join' style="width:150px; height:30px;" maxlength="6" placeholder="enter 6 digit code"/><br>
+          <button onclick="joinCode()">Join</button><br><br>
+          <button onclick="closeModel('joinModel')">close model</button>
+        </div>
+      
+      </div>
+      
+
+
+<button onclick="exit()" id='exit' style='display: none;'>Exit</button>
+
+
     </body>
-</html>
+    </html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js" type='text/javascript'></script>
+<script src='main.js' type='text/javascript'></script>
+<script src='socket.js' type='text/javascript'></script>
