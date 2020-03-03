@@ -32,7 +32,6 @@ socket.on('tick',data=>{
 socket.on('leaveRoom',data=>{
     alert('oops your friend has leaved game')
     closeGame()
-    clearArray()
 })
 
 function getCode(){

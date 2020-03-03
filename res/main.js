@@ -14,6 +14,10 @@ function openLayout(){
   closeModel('joinModel')
   closeModel('inviteModel')
   setTimeout(()=>closeModel('animationModel'),3000)
+
+  document.querySelectorAll('.game-layout div').forEach(node=>{
+    node.addEventListener('click',addimg)
+})
   
   document.getElementsByClassName('box')[0].style.display='none'
   document.getElementsByClassName('game-layout')[0].style.display='grid'
@@ -63,7 +67,8 @@ function closeGame(){
   document.getElementsByClassName('game-layout')[0].style.display='none'
   document.getElementById('exit').style.display='none'
   document.getElementById('turn-load').style.display='none'
-  leaveRoom()
+  clearArray()
+  
 }
 
 function clearLayout(){
@@ -84,9 +89,7 @@ function addimg(e){
   checkResult(e.target.dataset.index,symbol)
   tick(e.target.dataset.index)
 }
-document.querySelectorAll('.game-layout div').forEach(node=>{
-    node.addEventListener('click',addimg)
-})
+
 
 function makeid(length) {
   var result           = '';
@@ -116,9 +119,13 @@ function checkResult(index,symbol){
      alert('you won')
      else
       alert('you lost')
+
+      closeGame()
   }
   else if(isFullArray())
-   alert('game tied') 
+   {   alert('game tied') 
+       closeGame()
+  }
 
 }
 function isFullArray(){
