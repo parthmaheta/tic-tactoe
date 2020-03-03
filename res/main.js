@@ -29,7 +29,8 @@ function clearLayout(){
 }
 function closeModel(id){
   document.getElementById(id).style.display='none'
-
+  if(id=='inviteModel'&&state.room!='')
+   leaveRoom()
 }
 
 function addimg(e){ 

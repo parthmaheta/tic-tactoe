@@ -40,6 +40,10 @@ io.on('connection',(socket)=>{
          socket.emit('noRoom',{})      
     })
 
+   socket.on('leaveRoom',room=>{
+       socket.leave(room)
+   })
+
    socket.on('tick',data=>{
        socket.broadcast.to(data.room).emit('tick',data)
    })

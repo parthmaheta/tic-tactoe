@@ -18,6 +18,7 @@ socket.on('tick',data=>{
     let index=data.index
     document.querySelectorAll('.game-layout div')[index].style.backgroundImage=`url('./img/${img}')`
 })
+
 function getCode(){
    state.room=makeid(6)
    document.getElementById('code').innerText=state.room
@@ -32,7 +33,9 @@ function joinCode(){
          state.symbol='x.png'
     }    
 }
-
+function leaveRoom(){
+    socket.emit('leaveRoom',state.room)
+}
 function tick(index){
     socket.emit('tick',{room:state.room,index:index,img:state.symbol})
     document.querySelectorAll('.game-layout div')[index].removeEventListener('click',addimg)

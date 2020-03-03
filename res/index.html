@@ -34,7 +34,8 @@
         <div class="modal-content">
           
           <p><b><u id="code">aeiou</u></b> is your invitaion code ask you friend to join with this code</p>
-          <button onclick="closeModel('inviteModel')">close model</button>
+          <div class="loader"></div><span>waiting to join</span>
+          <button onclick="closeModel('inviteModel')">cancel</button>
         </div>
       
       </div>
@@ -46,7 +47,7 @@
           
           <input id='join' style="width:150px; height:30px;" maxlength="6" placeholder="enter 6 digit code"/><br>
           <button onclick="joinCode()">Join</button><br><br>
-          <button onclick="closeModel('joinModel')">close model</button>
+          <button onclick="closeModel('joinModel')">close</button>
         </div>
       
       </div>
