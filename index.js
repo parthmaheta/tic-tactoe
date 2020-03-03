@@ -41,12 +41,21 @@ io.on('connection',(socket)=>{
     })
 
    socket.on('leaveRoom',room=>{
+       socket.to(room).emit('leaveRoom',{})
        socket.leave(room)
    })
 
    socket.on('tick',data=>{
-       socket.broadcast.to(data.room).emit('tick',data)
+       socket.to(data.room).emit('tick',data)
    })
-      
+    
+    socket.on('disconnecting', function(){
+        var self = this;
+        var rooms = Object.keys(self.rooms);
+    
+        rooms.forEach(function(room){
+            self.to(room).emit('leaveRoom',{});
+        });
+    });  
         
 })

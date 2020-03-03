@@ -10,7 +10,7 @@
 
     </head>
     <body>
-         <div class="box">
+         <div class="box" id='box'>
             <button onclick="openModel('inviteModel')">invite</button>
             <button onclick="openModel('joinModel')">join</button>
          </div>
@@ -28,13 +28,24 @@
 
     </div>
 
+    <div id="animationModel" class="invite-model">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        
+        <div class="loader"></div>
+        <span>game is being started in <b id='seconds'>3</b> second</span>
+      </div>
+    
+    </div>
+
     <div id="inviteModel" class="invite-model">
 
         <!-- Modal content -->
         <div class="modal-content">
           
           <p><b><u id="code">aeiou</u></b> is your invitaion code ask you friend to join with this code</p>
-          <div class="loader"></div><span>waiting to join</span>
+          <div id='showLoader' style='display: none;'><div class="loader"></div><span>waiting for friend</span></div>
           <button onclick="closeModel('inviteModel')">cancel</button>
         </div>
       
@@ -55,7 +66,7 @@
 
 
 <button onclick="exit()" id='exit' style='display: none;'>Exit</button>
-
+<div id='turn-load' style='display: none;'><div class="loader"></div><span>your friend's turn</span></div>
 
     </body>
     </html>
